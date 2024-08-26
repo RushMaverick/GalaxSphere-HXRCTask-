@@ -39,9 +39,16 @@ public class Player : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Finish")
 			PlayerDeath();
+		if (other.tag == "ColorSwitcher")
+			SwitchColor();
 	}
 
-	void PlayerDeath() {
+	private void SwitchColor(){
+		_spriteRenderer.color = Color.blue;
+		Debug.Log("Switched color!");
+	}
+
+	private void PlayerDeath() {
 		_rb2d.simulated = false;
 		_spriteRenderer.enabled = false;
 		_ps.GetComponent<ParticleSystem>().Play();
