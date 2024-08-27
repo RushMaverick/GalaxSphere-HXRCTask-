@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 77793054}
   - component: {fileID: 77793052}
   - component: {fileID: 77793053}
+  - component: {fileID: 77793055}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -215,6 +216,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &77793055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77793051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11144c40c0c1344289ea9250a028b6a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &408019578
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,16 +313,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6787197452958655720, guid: 3ba98a375eb524216bc9239467c68a23, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6787197452958655720, guid: 3ba98a375eb524216bc9239467c68a23, type: 3}
       propertyPath: _camFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 77793055}
     - target: {fileID: 6787197452958655720, guid: 3ba98a375eb524216bc9239467c68a23, type: 3}
       propertyPath: _playerLoc
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2096468626}
     - target: {fileID: 7728457134959388516, guid: 3ba98a375eb524216bc9239467c68a23, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -479,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4173123036875498336, guid: a51e8b1979e74314fadc8f4ae4b72c3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.73
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: 4173123036875498336, guid: a51e8b1979e74314fadc8f4ae4b72c3d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -651,6 +664,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2096468626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 881072073437232359, guid: bf62aed01fb89490cab52aca7b1ed62f, type: 3}
+  m_PrefabInstance: {fileID: 1694319007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3804162914647649222
 PrefabInstance:
   m_ObjectHideFlags: 0
