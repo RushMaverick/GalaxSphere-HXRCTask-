@@ -8,6 +8,10 @@ TagManager:
   - Arc
   - Point
   - ColorSwitcherTre
+  - Yellow
+  - Blue
+  - Red
+  - Green
   layers:
   - Default
   - TransparentFX
