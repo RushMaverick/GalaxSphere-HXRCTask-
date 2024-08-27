@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
 	private GameObject[] _objectList;
 	private float _spawnTimer = 10f;
 	private float _despawnBelowPlayer = 10f;
-	private float _spawnDistance = 5f;
+	private float _spawnDistance = 9f;
 	private static int _objectsSpawned = 0;
 	void Start(){
 		_objectList = new GameObject[5];
@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
 			GameObject newGameObject = Instantiate(_colorSwitcher, transform.position + _spawnDistance * Vector3.up, transform.rotation);
 			_objectList[i] = newGameObject;
 			_objectsSpawned++;
-			_despawnBelowPlayer += 5f;
+			this.transform.position += _spawnDistance * Vector3.up;
 		}
 	}
 
