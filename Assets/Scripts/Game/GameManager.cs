@@ -8,9 +8,12 @@ public class GameManager : MonoBehaviour
 	public Transform _playerLoc;
     void Start()
     {
-		Debug.Log(_playerLoc.position);
 		_camFollow.Setup(() => _playerLoc.position);
     }
+
+	public void ResetGame(){
+		Debug.Log("Reset go brrrrr.");
+	}
 
     // Update is called once per frame
     void Update()
