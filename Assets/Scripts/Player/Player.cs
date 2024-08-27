@@ -42,6 +42,10 @@ public class Player : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Finish")
 			PlayerDeath();
+		if (other.tag == "Green" || other.tag == "Yellow" || other.tag == "Red" || other.tag == "Blue"){
+			if (this.tag == other.tag)
+				PlayerDeath();
+		}
 		if (other.tag == "ColorSwitcher")
 			SwitchColor();
 	}
@@ -58,8 +62,27 @@ public class Player : MonoBehaviour
 		
 		while (randIndex == _lastColor)
 			randIndex = UnityEngine.Random.Range(0, colors.Length); //This randomizes the color by using Random.Range to randomize a number to pick from the Color array.
-		_lastColor = randIndex; 
+		_lastColor = randIndex;
 		_spriteRenderer.color = colors[randIndex];
+		// Switch case based on color
+		switch (randIndex)
+		{
+			case 0:
+				_spriteRenderer.tag = "Red";
+				break;
+			case 1:
+				_spriteRenderer.tag = "Blue";
+				break;
+			case 2:
+				_spriteRenderer.tag = "Green";
+				break;
+			case 3:
+				_spriteRenderer.tag = "Yellow";
+				break;
+			default:
+				Debug.LogError("Unknown color");
+				break;
+		}
 	}
 
 	private void PlayerDeath() {
