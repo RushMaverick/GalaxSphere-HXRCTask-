@@ -12,6 +12,7 @@ TagManager:
   - Blue
   - Red
   - Green
+  - Star
   layers:
   - Default
   - TransparentFX

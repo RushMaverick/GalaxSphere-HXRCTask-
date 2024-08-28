@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camFollow: {fileID: 0}
-  _playerLoc: {fileID: 0}
+  uid: {fileID: 6379278302671755143, guid: a2eaf15d096fb0b41a6b6766b6ab216d, type: 3}
+  _playerLoc: {fileID: 881072073437232359, guid: bf62aed01fb89490cab52aca7b1ed62f, type: 3}

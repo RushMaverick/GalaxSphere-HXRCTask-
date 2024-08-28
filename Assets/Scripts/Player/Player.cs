@@ -2,16 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
 	public GameManager _gmanager;
+	public ScoreTracking _uid;
 	private Rigidbody2D _rb2d;
 	private float _destructionTime = 2f; // Used only for resetting the game when the player dies.
 	private int _lastColor;
 	private SpriteRenderer _spriteRenderer;
 	private Transform _ps; 
 	private float thrust = 5f;
+	private int _score = 0;
 
 
 	public Transform GetChildByName(Transform parent, string childName) { //Searches through the parent by the childName and returns the transform for it if it exists, otherwise it throws an error.
@@ -42,6 +45,8 @@ public class Player : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Finish")
 			PlayerDeath();
+		if (other.tag == "Star")
+			CollectStar();
 		if (other.tag == "Green" || other.tag == "Yellow" || other.tag == "Red" || other.tag == "Blue"){ //In case the tag is of a color AND is not the same as the Player, it triggers the death sequence
 			if (this.tag != other.tag)
 				PlayerDeath();
@@ -50,6 +55,10 @@ public class Player : MonoBehaviour
 			SwitchColor();
 	}
 
+	private void CollectStar() {
+		_score++;
+		_uid.UpdateScore(_score);
+	}
 	private void SwitchColor(){
 		int randIndex = 0;
 		Color[] colors = new Color[]
