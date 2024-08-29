@@ -13,6 +13,9 @@ TagManager:
   - Red
   - Green
   - Star
+  - LR
+  - UD
+  - StarSpawn
   layers:
   - Default
   - TransparentFX

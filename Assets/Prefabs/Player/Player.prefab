@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gmanager: {fileID: 6787197452958655720, guid: 3ba98a375eb524216bc9239467c68a23, type: 3}
+  _star: {fileID: 1722441667386504836, guid: 6fe033a8dedf400439bdbaf49af36926, type: 3}
   _uid: {fileID: 4806041762202673152, guid: a2eaf15d096fb0b41a6b6766b6ab216d, type: 3}
 --- !u!1 &1579215179844129914
 GameObject:

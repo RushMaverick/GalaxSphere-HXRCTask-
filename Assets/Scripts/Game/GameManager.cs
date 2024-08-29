@@ -9,9 +9,7 @@ public class GameManager : MonoBehaviour
 	private string _score;
 	public Transform _playerLoc;
 	void Start(){
-		_camFollow.Setup(() => _playerLoc.position);
-		
-		// _uid.rootVisualElement.Q<Label>("Score").text = "0";
+		_camFollow.Setup(() => _playerLoc.position); // Set up the camera to follow the player
     }
 
 	public void ResetGame(){
