@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateObstacle : MonoBehaviour
 {
-	private float degreesPerSecond = 15f;
+	private float degreesPerSecond = 15f; // Speed of rotation
 	void Start(){
 	}
 	void Update(){

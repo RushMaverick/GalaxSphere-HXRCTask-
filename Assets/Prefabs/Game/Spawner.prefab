@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colorSwitcher: {fileID: 5089555601064969654, guid: 1c7ea7c7a7b9adc46a20bf7e9e045f72, type: 3}
+  _blinkObstacle: {fileID: 1338490923798202931, guid: 53d875bbfe9d56c41b37e6beb2b7cc5a, type: 3}
   _rotatingObstacle: {fileID: 6836459509905498924, guid: ffc4a2a90557a384fa857912af5dcd47, type: 3}
+  _movingObstacle: {fileID: 6836459509905498924, guid: 6b0fb195c2307914c8902f840601a75c, type: 3}
 --- !u!1 &4598920287779248298
 GameObject:
   m_ObjectHideFlags: 0

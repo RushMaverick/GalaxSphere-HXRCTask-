@@ -9,6 +9,8 @@ public class Spawner : MonoBehaviour
 	private Transform _rightPoint;
 	public GameObject _colorSwitcher;
 	public GameObject _rotatingObstacle;
+	public GameObject _movingObstacle;
+	public GameObject _blinkObstacle;
 	private GameObject[] _objectList;
 	private float _spawnTimer = 10f;
 	private float _despawnBelowPlayer = 10f;
@@ -40,23 +42,39 @@ public class Spawner : MonoBehaviour
 	}
 
 	void Populate(GameObject[] objectlist){
-		if (_colorSwitcher == null){
-			Debug.LogError("no color swticher avaivalbe");
-			return;
-		}
-		for (int i = 0; i <= 5; i++){ // Instantiates five objects into an array of game objects to pool through.
-			if (i % 2 == 0){
+		for (int i = 0; i <= 5; i++){ 
+			if (i % 2 == 0){ //If the index is even, spawn a color switcher
 				Vector3 spawnPos = _centerPoint.position + _spawnDistance * Vector3.up;
 				GameObject colorSwitch = Instantiate(_colorSwitcher, spawnPos, transform.rotation);
 				_objectList[i] = colorSwitch;
 			}
-			else{
-				Vector3 spawnPos = _rightPoint.position + _spawnDistance * Vector3.up;
-				GameObject rotateObstacle = Instantiate(_rotatingObstacle, spawnPos, transform.rotation);
-				_objectList[i] = rotateObstacle;
+			else { //If the index is odd, spawn a random obstacle
+				 SpawnRandomObstacle(i);
 			}
 			_objectsSpawned++;
-			this.transform.position += _spawnDistance * Vector3.up;
+			this.transform.position += _spawnDistance * Vector3.up; //Move the spawner up
+		}
+	}
+
+	void SpawnRandomObstacle(int index) {
+		Vector3 spawnPos;
+		int randIndex = UnityEngine.Random.Range(0, 3);
+		switch(randIndex) { // You can easily add more cases here to spawn more types of obstacles, remember to change the Random.Range value to match the number of cases!
+			case 0:
+				spawnPos = _rightPoint.position + _spawnDistance * Vector3.up; //Spawn the obstacle to the right of the center point
+				GameObject rotateObstacle = Instantiate(_rotatingObstacle, spawnPos, transform.rotation); //Instantiate the rotating obstacle
+				_objectList[index] = rotateObstacle; 
+				break;
+			case 1:
+				spawnPos = _centerPoint.position + _spawnDistance * Vector3.up; //Spawn the obstacle at the center point
+				GameObject moveObstacle = Instantiate(_movingObstacle, spawnPos, transform.rotation); //Instantiate the moving obstacle
+				_objectList[index] = _movingObstacle;
+				break;
+			case 2:
+				spawnPos = _centerPoint.position + _spawnDistance * Vector3.up; //Spawn the obstacle at the center point
+				GameObject blinkObstacle = Instantiate(_blinkObstacle, spawnPos, transform.rotation); //Instantiate the blinking obstacle
+				_objectList[index] = _blinkObstacle;
+				break;
 		}
 	}
 

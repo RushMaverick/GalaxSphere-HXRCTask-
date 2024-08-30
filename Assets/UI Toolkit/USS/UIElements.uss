@@ -1,0 +1,10 @@
+.UIText {
+    -unity-font: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=222040d644044db47aea49a5b2dcb7ce&type=3#NotInter-Regular");
+    -unity-font-style: bold;
+    font-size: 32px;
+    -unity-text-align: upper-left;
+    white-space: normal;
+    text-overflow: clip;
+    color: rgb(89, 89, 89);
+    margin-left: 32px;
+}
