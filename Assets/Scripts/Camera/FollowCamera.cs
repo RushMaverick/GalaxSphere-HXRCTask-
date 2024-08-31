@@ -5,21 +5,23 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-	private Func<Vector3> GetCameraFollowPosition;
-	private float _offset = 1f;
+	private Transform _target;
+	private float _lastPlayerY;
+	private float _offset = 0.5f;
 
-	public GameObject zoneOfDeath;
+	void Start() {
+		_target = GameObject.FindWithTag("Player").transform;
+		if (_target == null)
+			Debug.LogError("Player not found");
+		_lastPlayerY = _target.position.y;
+	}
 
-    public void Setup(Func<Vector3> GetCameraFollowPosition){
-		this.GetCameraFollowPosition = GetCameraFollowPosition;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-		Vector3 cameraFollowPosition = GetCameraFollowPosition();
-		cameraFollowPosition.z = transform.position.z;
-		transform.position = new Vector3(cameraFollowPosition.x, cameraFollowPosition.y + _offset, transform.position.z);
-		// zoneOfDeath.transform.position = new Vector3(cameraFollowPosition.x, cameraFollowPosition.y, zoneOfDeath.transform.position.z);
-    }
+	void LateUpdate() {
+		if (_target.position.y > _lastPlayerY) { // Camera follows the player only when the player is above the last position
+			_lastPlayerY = _target.position.y;
+			Vector3 cameraPos = new Vector3(transform.position.x, _lastPlayerY + _offset, transform.position.z); // Camera follows the player with specified offset position
+			Vector3 smoothPos = Vector3.Lerp(transform.position, cameraPos, 0.1f); // Smooth camera movement
+			transform.position = smoothPos;
+		}
+	}
 }

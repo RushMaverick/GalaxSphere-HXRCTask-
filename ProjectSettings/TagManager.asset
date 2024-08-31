@@ -8,14 +8,14 @@ TagManager:
   - Arc
   - Point
   - ColorSwitcherTre
-  - Yellow
   - Blue
-  - Red
-  - Green
   - Star
   - LR
   - UD
   - StarSpawn
+  - Red
+  - Green
+  - Yellow
   layers:
   - Default
   - TransparentFX

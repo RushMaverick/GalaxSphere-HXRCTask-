@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/USS/UIElements.uss?fileID=7433441132597879392&amp;guid=7aa2af42d2135a14ba71d0733b3a04f1&amp;type=3#UIElements" />
     <ui:VisualElement name="Container" style="flex-grow: 1;">
-        <ui:Label tabindex="-1" text="Stars Collected:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ScoreText" class="UIText" style="margin-top: 25px; margin-left: 25px;">
+        <ui:Label tabindex="-1" text="Stars Collected:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ScoreText" class="UIText" style="margin-top: 25px; margin-left: 25px; -unity-font: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=222040d644044db47aea49a5b2dcb7ce&amp;type=3#NotInter-Regular&quot;);">
             <ui:Label tabindex="-1" text="42" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Score" class="UIText" style="left: 254px; top: -9px;" />
         </ui:Label>
     </ui:VisualElement>
