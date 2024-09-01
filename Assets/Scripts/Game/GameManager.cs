@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
 	private string _score;
 	void Start(){
-		Screen.SetResolution(720, 1280, FullScreenMode.Windowed);
+		Screen.SetResolution(640, 1152, FullScreenMode.Windowed);
 	}
 
 	public void LoadScene(string name){
