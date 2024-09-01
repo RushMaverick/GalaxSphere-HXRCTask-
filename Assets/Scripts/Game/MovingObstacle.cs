@@ -10,7 +10,7 @@ public class MovingObstacle : MonoBehaviour
 	private SpriteRenderer _spriteRenderer;
 	private Vector3 _startPos;
 	private bool _isMovingRight = true;
-	private float _moveSpeed = 0.01f;
+	private float _moveSpeed = 10.00f;
 
 	void Start() {
 		//Store initial positions
@@ -28,15 +28,19 @@ public class MovingObstacle : MonoBehaviour
 		switch(randIndex) {
 			case 0:
 				_spriteRenderer.color = Color.red;
+				gameObject.tag = "Red";
 				break;
 			case 1:
 				_spriteRenderer.color = Color.yellow;
+				gameObject.tag = "Yellow";
 				break;
 			case 2:
 				_spriteRenderer.color = Color.blue;
+				gameObject.tag = "Blue";
 				break;
 			case 3:
 				_spriteRenderer.color = Color.green;
+				gameObject.tag = "Green";
 				break;
 		}
 	}
@@ -45,7 +49,7 @@ public class MovingObstacle : MonoBehaviour
 		// Check if we're moving right
 		if (_isMovingRight){
 			// Move the obstacle horizontally towards the target position
-			transform.position = Vector3.MoveTowards(transform.position, _targetPos, _moveSpeed);
+			transform.position = Vector3.MoveTowards(transform.position, _targetPos, _moveSpeed * Time.deltaTime);
 			
 			// If we've reached the target x-position, stop moving right and set new target
 			if (transform.position.x >= _targetPos.x){
@@ -56,7 +60,7 @@ public class MovingObstacle : MonoBehaviour
 
 		// If not moving right, start moving left
 		else {
-			transform.position = Vector3.MoveTowards(transform.position, _targetPos, _moveSpeed);
+			transform.position = Vector3.MoveTowards(transform.position, _targetPos, _moveSpeed * Time.deltaTime);
 
 			 // If we've reached the target x-position, start moving right and set new target
 			if (transform.position.x <= _targetPos.x){
