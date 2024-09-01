@@ -53,7 +53,6 @@ public class Player : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other) {
 		string tagName = other.tag;
-		Debug.Log($"Player collided with {tagName}");
 		switch (tagName){
 			case "Finish":
 				PlayerDeath();
@@ -123,7 +122,6 @@ public class Player : MonoBehaviour
 				_spriteRenderer.tag = "Yellow";
 				break;
 		}
-		Debug.Log($"Color switched to " + _spriteRenderer.tag);
 	}
 
 	private void PlayerDeath() {
