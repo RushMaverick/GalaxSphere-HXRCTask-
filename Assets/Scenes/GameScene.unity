@@ -588,6 +588,22 @@ PrefabInstance:
       propertyPath: _uid
       value: 
       objectReference: {fileID: 860781623}
+    - target: {fileID: 5303119317041266012, guid: bf62aed01fb89490cab52aca7b1ed62f, type: 3}
+      propertyPath: _playerControls.m_Name
+      value: Player Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303119317041266012, guid: bf62aed01fb89490cab52aca7b1ed62f, type: 3}
+      propertyPath: _playerControls.m_SingletonActionBindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303119317041266012, guid: bf62aed01fb89490cab52aca7b1ed62f, type: 3}
+      propertyPath: _playerControls.m_SingletonActionBindings.Array.data[0].m_Id
+      value: aa7bcfb0-a4e1-4809-8720-5bffbb617e74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303119317041266012, guid: bf62aed01fb89490cab52aca7b1ed62f, type: 3}
+      propertyPath: _playerControls.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Player Controls
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

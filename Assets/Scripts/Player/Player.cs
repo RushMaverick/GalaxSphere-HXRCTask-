@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
 	public GameManager _gmanager;
+	public PlayerInput _playerControls;
+	private InputAction _jump;
 	private bool _playerPassed = false; //This is used to prevent the player from spawning multiple stars from one trigger collider.
 	public GameObject _star;
 	public ScoreTracking _uid;
@@ -20,6 +23,16 @@ public class Player : MonoBehaviour
 	private float _thrust = 5f;
 	private float _spawnDistance = 4f; //Distance from the StarSpawn object to spawn the star.
 	private int _score = 0;
+
+	private void OnEnable () { //Enables the jump action and assigns the Jump method to it.
+		_jump = _playerControls.Player.Jump;
+		_jump.Enable();
+		_jump.performed += Jump;
+	}
+
+	private void OnDisable () { 
+		_jump.Disable();
+	}
 
 
 	public Transform GetChildByName(Transform parent, string childName) { //Searches through the parent by the childName and returns the transform for it if it exists, otherwise it throws an error.
@@ -35,6 +48,7 @@ public class Player : MonoBehaviour
 
 	void Awake() {
         _rb2d = gameObject.GetComponent<Rigidbody2D>();
+		_playerControls = new PlayerInput();
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 		_spriteRenderer.color = Color.red;
 		_deathPs = this.GetChildByName(gameObject.transform, "PlayerDeath");
@@ -43,12 +57,8 @@ public class Player : MonoBehaviour
     }
 
     void Update() {
-        if (Input.GetKeyDown("space")){
-			_rb2d.velocity = Vector2.up * _thrust;
-		}
-		if (_score == 5) {
+		if (_score == 5)
 			StartCoroutine(WinScreen());
-		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
@@ -140,5 +150,11 @@ public class Player : MonoBehaviour
 	private IEnumerator ResetGame() {
 		yield return new WaitForSeconds(_destructionTime);
 		_gmanager.LoadScene("GameScene");
+	}
+
+	private void Jump(InputAction.CallbackContext context) { // This method uses the new Unity Input System to handle the jump action.
+		if (context.performed) {
+			_rb2d.velocity = Vector2.up * _thrust;
+		}
 	}
 }
