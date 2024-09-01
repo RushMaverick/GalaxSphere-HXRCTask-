@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
 	public GameObject _star;
 	public ScoreTracking _uid;
 	private Rigidbody2D _rb2d;
-	private float _destructionTime = 2f; // Used only for resetting the game when the player dies.
+	private float _winTime = 0.5f;
+	private float _destructionTime = 1f; // Used only for resetting the game when the player dies.
 	private int _lastColor;
 	private SpriteRenderer _spriteRenderer;
 	private Transform _deathPs;
@@ -134,7 +135,7 @@ public class Player : MonoBehaviour
 	}
 
 	private IEnumerator WinScreen() {
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(_winTime);
 		_gmanager.LoadScene("WinScene");
 	}
 

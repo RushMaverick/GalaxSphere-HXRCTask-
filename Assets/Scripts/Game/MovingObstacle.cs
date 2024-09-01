@@ -10,7 +10,7 @@ public class MovingObstacle : MonoBehaviour
 	private SpriteRenderer _spriteRenderer;
 	private Vector3 _startPos;
 	private bool _isMovingRight = true;
-	private float _moveSpeed = 11.00f;
+	private float _moveSpeed = 10.00f;
 
 	void Start() {
 		//Store initial positions
